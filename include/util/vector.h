@@ -78,6 +78,26 @@ bool vector_add(Vector* vector, void* data);
 void* vector_get(Vector* vector, size_t index);
 
 /**
+ * Pack the Vector.
+ * @param vector vector
+ */
+bool vector_pack(Vector* vector);
+
+/**
+ * Remove last element from the vector
+ * @param vector vector
+ * @return last element or NULL if there is no element
+ */
+void* vector_remove_last(Vector* vector);
+
+/**
+ * Get last element from the vector
+ * @param vector vector;
+ * @return last element or NULL if there is no element
+ */
+void* vector_get_last(Vector* vector);
+
+/**
  * Get index of an element using comparing function.
  *
  * @param vector Vector
