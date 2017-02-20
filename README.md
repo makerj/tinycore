@@ -1,6 +1,6 @@
 # tinycore
 
-Tinycore is a cross-platform library that packages data structures, loggers, and network utilities that are used repeatedly in practice.
+Tinycore is a library that packages data structures, loggers, and network utilities that are used repeatedly in practice.
 
 ## Features
 Currently, the tinycore library provides the following functionalities.
