@@ -1,24 +1,29 @@
 .PHONY: all clean
+#VPATH := add:multiple:paths:like:this
+VPATH := src
 
-INC     :=   -I"./include"
-CFLAGS	:= -O3 -Wall -std=gnu11 $(INC)
-
-SRCS    :=$(shell find . -name '*.c')
-OBJS    :=$(SRCS:%.c=%.o)
 BUILDDIR:= build
 OBJDIR  := $(BUILDDIR)/obj
 
+INC     := -I"./include"
+CFLAGS	:= -O3 -Wall -std=gnu11 $(INC)
 
-all: mktree $(OBJS) mklib
+SRCS    := $(notdir $(shell find . -name '*.c'))
+OBJS    := $(addprefix $(OBJDIR)/,$(SRCS:%.c=%.o))
+
+LIBRARY := $(BUILDDIR)/libtinycore.a
+
+all: mktree $(LIBRARY)
 
 mktree:
-	mkdir -p $(OBJDIR)
+	@if [ ! -e $(OBJDIR) ]; then mkdir -p $(OBJDIR); fi
 
-%.o: %.c
-	if [ ! -e $(OBJDIR)/$(notdir $@) ]; then gcc $(CFLAGS) -c -o $(OBJDIR)/$(notdir $@) $<; fi
+$(OBJDIR)/%.o: %.c
+	gcc $(CFLAGS) -c -o $@ $<
 
-mklib:
-	ar -rcs $(BUILDDIR)/libtinycore.a $(OBJDIR)/*.o
+$(LIBRARY): $(OBJS)
+	ar -rcs $@ $^
 
 clean:
 	rm -rf $(BUILDDIR)
+
