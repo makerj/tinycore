@@ -28,6 +28,10 @@ typedef struct _List {
 	void*		pool;	///< Memory pool (internal use only)
 } List;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Create a LinkedList.
  *
@@ -195,5 +199,9 @@ void* list_iterator_next(ListIterator* iter);
  * @return removed element
  */
 void* list_iterator_remove(ListIterator* iter);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __UTIL_LIST_H__ */

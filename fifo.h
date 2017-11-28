@@ -20,6 +20,10 @@ typedef struct _FIFO {
 	void*		pool;	///< Memory pool (internal use only)
 } FIFO;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Create a FIFO. fifo_init will be called internally.
  *
@@ -120,5 +124,9 @@ bool fifo_available(FIFO* fifo);
  * @return true if FIFO is empty
  */
 bool fifo_empty(FIFO* fifo);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __UTIL_FIFO_H__ */

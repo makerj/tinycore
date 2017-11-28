@@ -32,6 +32,10 @@ typedef struct _Map {
 	void*		pool;		///< Memory pool (internal use only)
 } Map;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Create a HashMap.
  *
@@ -204,5 +208,9 @@ uint64_t map_string_hash(void* key);
  * @return true if two keys are same
  */
 bool map_string_equals(void* key1, void* key2);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __UTIL_MAP_H__ */

@@ -14,6 +14,3 @@ Currently, the tinycore library provides the following functionalities.
  
 - Logger(zf_log fork)
 
-
-## Future Plans
-In the future we plan to add string related utilities and network related utilities.

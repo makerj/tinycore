@@ -19,6 +19,10 @@ typedef struct _Vector {
 	void*		pool;	///< Memory pool (internal use only)
 } Vector;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Create a Vector. vector_init will be called internally.
  *
@@ -171,5 +175,9 @@ void* vector_iterator_next(VectorIterator* iter);
  * @return removed element
  */
 void* vector_iterator_remove(VectorIterator* iter);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __UTIL_VECTOR_H__ */

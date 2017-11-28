@@ -8,6 +8,10 @@
  * Ring buffer data structure for strings
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Write string to the ring buffer.
  *
@@ -53,5 +57,9 @@ size_t ring_readable(size_t head, size_t tail, size_t size);
  * @return available space to write
  */
 size_t ring_writable(size_t head, size_t tail, size_t size);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __UTIL_RING_H__ */

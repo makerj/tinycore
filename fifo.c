@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <stdlib.h>
-#include <util/fifo.h>
+#include "fifo.h"
 
 FIFO* fifo_create(size_t size, void* pool) {
 	FIFO* fifo = malloc(sizeof(FIFO));

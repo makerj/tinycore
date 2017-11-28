@@ -31,6 +31,10 @@ typedef struct _Set {
 	void*		pool;		///< Memory pool (internal use only)
 } Set;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Create a HashSet.
  *
@@ -184,5 +188,9 @@ uint64_t set_string_hash(void* data);
  * @return true if two datas are same
  */
 bool set_string_equals(void* data1, void* data2);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __UTIL_SET_H__ */
